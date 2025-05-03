@@ -13,6 +13,7 @@ public class cliente {
     private String nomCliente;
     private String apCliente;
     private String correoCliente;
+    private String contraseña;
     private String dirCliente;
     private estadoCliente estado;
 }

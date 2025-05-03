@@ -1,6 +1,8 @@
 package com.Registro.MSCliente.repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
@@ -33,5 +35,9 @@ public class clienteRepository {
     public cliente actualizar(cliente cliente) {
         db.put(cliente.getIdCliente(), cliente);
         return cliente;
+    }
+
+    public List<cliente> listarTodos() {
+        return new ArrayList<>(db.values());
     }
 }

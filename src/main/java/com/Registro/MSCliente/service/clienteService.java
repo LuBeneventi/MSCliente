@@ -1,5 +1,7 @@
 package com.Registro.MSCliente.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,9 +22,10 @@ public class clienteService {
     }
     
 
-    public boolean iniciarSesion(String correo) {
+    public boolean iniciarSesion(String correo, String contraseña) {
         cliente c = repo.buscarPorCorreo(correo);
-        return c != null && c.getEstado() == estadoCliente.ACTIVO;
+        return c != null && c.getContraseña().equals(contraseña)
+               && c.getEstado() == estadoCliente.ACTIVO;
     }
 
     public perfilCliente verPerfil(int id) {
@@ -61,5 +64,9 @@ public class clienteService {
             return repo.actualizar(c);
         }
         return null;
+    }
+
+    public List<cliente> listarTodos() {
+        return repo.listarTodos();
     }
 }

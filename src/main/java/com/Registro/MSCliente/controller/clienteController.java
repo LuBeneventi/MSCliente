@@ -1,5 +1,7 @@
 package com.Registro.MSCliente.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,9 +29,9 @@ public class clienteController {
         return service.registrarse(cliente);
     }
 
-     @PostMapping("/login")
-    public boolean login(@RequestParam String correo) {
-        return service.iniciarSesion(correo);
+    @PostMapping("/login")
+    public boolean login(@RequestParam String correo, @RequestParam String contraseña) {
+        return service.iniciarSesion(correo, contraseña);
     }
 
     @GetMapping("/{id}/perfil")
@@ -52,5 +54,9 @@ public class clienteController {
         return service.editarPerfil(id, cliente);
     }
 
+     @GetMapping("/listar")
+    public List<cliente> listar() {
+        return service.listarTodos();
+    }
 
 }
