@@ -21,9 +21,9 @@ public class clienteRepository {
         return cliente;
     }
 
-    public cliente buscarPorCorreo(String correo) {
+    public cliente buscarPorCorreo(String correoCliente) {
         return db.values().stream()
-                .filter(c -> c.getCorreoCliente().equals(correo))
+                .filter(c -> c.getCorreoCliente().equals(correoCliente))
                 .findFirst()
                 .orElse(null);
     }

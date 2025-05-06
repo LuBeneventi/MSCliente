@@ -30,8 +30,8 @@ public class clienteController {
     }
 
     @PostMapping("/login")
-    public boolean login(@RequestParam String correo, @RequestParam String contraseña) {
-        return service.iniciarSesion(correo, contraseña);
+    public boolean login(@RequestParam String correoCliente, @RequestParam String contraseña) {
+        return service.iniciarSesion(correoCliente, contraseña);
     }
 
     @GetMapping("/{id}/perfil")

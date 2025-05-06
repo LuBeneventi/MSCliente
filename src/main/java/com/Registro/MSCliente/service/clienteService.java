@@ -22,8 +22,8 @@ public class clienteService {
     }
     
 
-    public boolean iniciarSesion(String correo, String contraseña) {
-        cliente c = repo.buscarPorCorreo(correo);
+    public boolean iniciarSesion(String correoCliente, String contraseña) {
+        cliente c = repo.buscarPorCorreo(correoCliente);
         return c != null && c.getContraseña().equals(contraseña)
                && c.getEstado() == estadoCliente.ACTIVO;
     }
